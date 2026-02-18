@@ -24,15 +24,7 @@ export default function KYCScreen() {
             KYC submission form will be here
           </Text>
           <Text style={styles.placeholderSubtext}>
-            • WhatsApp phone number{'
-'}
-            • Aadhaar card photo upload{'
-'}
-            • Selfie with Aadhaar{'
-'}
-            • Vehicle type selection{'
-'}
-            • Admin approval process
+            {'\u2022 WhatsApp phone number\n\u2022 Aadhaar card photo upload\n\u2022 Selfie with Aadhaar\n\u2022 Vehicle type selection\n\u2022 Admin approval process'}
           </Text>
         </View>
       </View>

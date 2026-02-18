@@ -16,7 +16,7 @@ from models import (
     Rating, RatingCreate, Dispute, DisputeCreate, ConfigItem, OTPVerify
 )
 from auth import (
-    hash_password, verify_password, create_session, get_current_user,
+    hash_password, verify_password, create_session, get_current_user_dependency,
     process_google_oauth_session, hash_otp, verify_otp
 )
 from utils import calculate_distance_km, calculate_delivery_price, generate_4_digit_otp

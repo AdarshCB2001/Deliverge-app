@@ -24,13 +24,7 @@ export default function PostParcelScreen() {
             4-step parcel posting wizard will be here
           </Text>
           <Text style={styles.placeholderSubtext}>
-            • Select pickup & dropoff locations on map{'
-'}
-            • Add parcel details (weight, photos, value){'
-'}
-            • Choose timing (ASAP/Scheduled){'
-'}
-            • See price and confirm
+            {'\u2022 Select pickup & dropoff locations on map\n\u2022 Add parcel details (weight, photos, value)\n\u2022 Choose timing (ASAP/Scheduled)\n\u2022 See price and confirm'}
           </Text>
         </View>
       </View>

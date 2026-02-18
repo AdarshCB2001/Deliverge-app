@@ -36,6 +36,9 @@ app = FastAPI()
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
+# Create the auth dependency with database access
+get_current_user = get_current_user_dependency(db)
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,

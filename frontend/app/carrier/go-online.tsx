@@ -24,15 +24,7 @@ export default function GoOnlineScreen() {
             Carrier online mode will be here
           </Text>
           <Text style={styles.placeholderSubtext}>
-            • Set your destination on map{'
-'}
-            • Choose travel mode (bike/car/auto etc){'
-'}
-            • See nearby delivery requests{'
-'}
-            • Accept requests with 60-second timer{'
-'}
-            • Track earnings in real-time
+            {'\u2022 Set your destination on map\n\u2022 Choose travel mode (bike/car/auto etc)\n\u2022 See nearby delivery requests\n\u2022 Accept requests with 60-second timer\n\u2022 Track earnings in real-time'}
           </Text>
         </View>
       </View>

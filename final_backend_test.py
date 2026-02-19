@@ -106,6 +106,10 @@ async def run_final_comprehensive_test():
                 result = await resp.json()
                 sender_token = result["session_token"]
                 headers = {"Authorization": f"Bearer {sender_token}"}
+                
+                # Switch back to sender role for delivery creation
+                params = {"role": "sender"}
+                await session.put(f"{base_url}/users/role", params=params, headers=headers)
         
         # ============================================
         # 2. CARRIER PROFILE & KYC

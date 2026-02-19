@@ -99,6 +99,14 @@ async def run_final_comprehensive_test():
         async with session.post(f"{base_url}/auth/logout", headers=headers) as resp:
             record_test("POST /auth/logout", resp.status == 200)
         
+        # Re-authenticate sender for further tests
+        login_params = {"email": sender_email, "password": "Password123!"}
+        async with session.post(f"{base_url}/auth/login", params=login_params) as resp:
+            if resp.status == 200:
+                result = await resp.json()
+                sender_token = result["session_token"]
+                headers = {"Authorization": f"Bearer {sender_token}"}
+        
         # ============================================
         # 2. CARRIER PROFILE & KYC
         # ============================================

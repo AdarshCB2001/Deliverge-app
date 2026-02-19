@@ -209,6 +209,50 @@ async def logout(
 # USER & CARRIER PROFILE ENDPOINTS
 # ============================================
 
+@api_router.put("/users/profile")
+async def update_profile(
+    name: Optional[str] = None,
+    phone_whatsapp: Optional[str] = None,
+    current_user: dict = Depends(get_current_user)
+):
+    """Update user profile"""
+    update_data = {}
+    if name:
+        update_data["name"] = name.strip()
+    if phone_whatsapp is not None:
+        update_data["phone_whatsapp"] = phone_whatsapp.strip() if phone_whatsapp else None
+    
+    if not update_data:
+        raise HTTPException(status_code=400, detail="No data to update")
+    
+    await db.users.update_one(
+        {"user_id": current_user["user_id"]},
+        {"$set": update_data}
+    )
+    
+    return {"message": "Profile updated successfully"}
+
+
+@api_router.get("/ratings/me")
+async def get_my_ratings(current_user: dict = Depends(get_current_user)):
+    """Get ratings for current user"""
+    ratings = await db.ratings.find(
+        {"ratee_id": current_user["user_id"]},
+        {"_id": 0}
+    ).to_list(1000)
+    
+    # Calculate average
+    if ratings:
+        avg = sum(r["stars"] for r in ratings) / len(ratings)
+    else:
+        avg = 0
+    
+    return {
+        "ratings": ratings,
+        "average_rating": round(avg, 1)
+    }
+
+
 @api_router.get("/users/{user_id}")
 async def get_user(user_id: str, current_user: dict = Depends(get_current_user)):
     """Get user by ID"""

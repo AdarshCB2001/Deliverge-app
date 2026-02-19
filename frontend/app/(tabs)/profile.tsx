@@ -61,31 +61,46 @@ export default function ProfileScreen() {
 
         {/* Menu Items */}
         <View style={styles.menu}>
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity 
+            style={styles.menuItem}
+            onPress={() => router.push('/profile/edit')}
+          >
             <Ionicons name="person-outline" size={24} color="#666" />
             <Text style={styles.menuText}>Edit Profile</Text>
             <Ionicons name="chevron-forward" size={20} color="#999" />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity 
+            style={styles.menuItem}
+            onPress={() => router.push('/profile/ratings')}
+          >
             <Ionicons name="star-outline" size={24} color="#666" />
             <Text style={styles.menuText}>My Ratings</Text>
             <Ionicons name="chevron-forward" size={20} color="#999" />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity 
+            style={styles.menuItem}
+            onPress={() => router.push('/profile/payment-history')}
+          >
             <Ionicons name="card-outline" size={24} color="#666" />
             <Text style={styles.menuText}>Payment History</Text>
             <Ionicons name="chevron-forward" size={20} color="#999" />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity 
+            style={styles.menuItem}
+            onPress={() => router.push('/profile/help')}
+          >
             <Ionicons name="help-circle-outline" size={24} color="#666" />
             <Text style={styles.menuText}>Help & Support</Text>
             <Ionicons name="chevron-forward" size={20} color="#999" />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity 
+            style={styles.menuItem}
+            onPress={() => router.push('/profile/about')}
+          >
             <Ionicons name="information-circle-outline" size={24} color="#666" />
             <Text style={styles.menuText}>About</Text>
             <Ionicons name="chevron-forward" size={20} color="#999" />
